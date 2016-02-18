@@ -14,5 +14,13 @@ module.exports = function(defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
+  app.import('bower_components/babel-polyfill/browser-polyfill.js');
+
+  app.import({
+    development: 'bower_components/buzz-core/buzz-core.amd.js',
+    production: 'bower_components/buzz-core/buzz-core.amd.min.js',
+    test: 'bower_components/buzz-core/buzz-core-testing.amd.js'
+  });
+
   return app.toTree();
 };
